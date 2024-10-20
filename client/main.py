@@ -113,6 +113,6 @@ if st.button("Search"):
         results = asyncio.run(search_articles(search_query, nb_neighbors))
         if results:
             st.write("Search Results:")
-            st.json(results)
+            st.json(results['articles'])
     else:
         st.warning("Please enter a query before searching.")
