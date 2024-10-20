@@ -91,17 +91,20 @@ async def search_articles(query: str, nb_neighbors: int = 3):
 
 st.title("Article Management System")
 
-st.header("Add Article Manually")
+st.header("Add Article")
+st.write("You can upload a PDF file to the system.")
 uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
 if uploaded_file is not None:
     asyncio.run(handle_manual_upload(uploaded_file))
 
-st.header("Add 5 Random Articles from arXiv by Subject")
+st.header("Random Articles")
+st.write("This will fetch 5 random articles from arXiv based on the subject you enter.")
 subject = st.text_input("Enter a subject for article search:")
 if st.button("Fetch Random Articles"):
     asyncio.run(fetch_arxiv_articles(subject))
 
 st.header("Search Articles")
+st.write("Search for articles based on a query. You can specify the number of articles to return as well.")
 search_query = st.text_input("Enter search query")
 nb_neighbors = st.number_input("Number of articles:", min_value=1, max_value=10, value=3)
 
