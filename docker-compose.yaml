@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: fastapi-app
+    ports:
+      - "8100:8100"
+    volumes:
+      - ./api:/app
+    depends_on:
+      - elasticsearch
+    networks:
+      - app-network
+
+  streamlit:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: streamlit-client
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./client:/app
+    depends_on:
+      - fastapi
+    networks:
+      - app-network
+
+  elasticsearch:
+    image: bitnami/elasticsearch:latest
+    container_name: elasticsearch
+    environment:
+      - ELASTICSEARCH_PASSWORD=bitnami
+    ports:
+      - "9200:9200"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
