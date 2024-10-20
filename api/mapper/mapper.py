@@ -29,7 +29,7 @@ class Mapper:
         self.shared_lock = Lock()
         self.shared_event = Event()
         self.shared_openai_client = AsyncOpenAI(api_key=self.openai_settings.api_key)
-        self.shared_qdrant_client = qdrant_client.AsyncQdrantClient(self.qdrant_settings.url)
+        self.shared_qdrant_client = qdrant_client.AsyncQdrantClient(self.qdrant_settings.host)
         return self 
     
     async def __aexit__(self, exc_type, exc_value, traceback):
