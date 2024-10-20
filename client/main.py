@@ -5,7 +5,7 @@ import httpx
 import asyncio
 from io import BytesIO
 
-API_URL = 'http://localhost:8100/v1/article'
+API_URL = 'http://fastapi:8100/v1/article'
 
 async def send_pdf_to_api(pdf_bytes: BytesIO, filename: str = "article.pdf"):
     async with httpx.AsyncClient() as client:

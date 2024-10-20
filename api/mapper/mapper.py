@@ -5,7 +5,6 @@ from openai import AsyncOpenAI
 
 from log_handler.log import logger 
 
-from elasticsearch import AsyncElasticsearch
 import qdrant_client
 
 from settings.openai_settings import OpenAiSettings

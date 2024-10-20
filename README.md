@@ -2,6 +2,8 @@
 
 This repository contains an application for managing articles. Follow the instructions below to get the project up and running.
 
+<img src='static/client.png'>
+
 ## Getting Started
 
 ### Prerequisites
@@ -39,7 +41,7 @@ This repository contains an application for managing articles. Follow the instru
 Once the containers are up, you can access the different components of the application:
 
 - **FastAPI Server**: [http://localhost:8100/](http://localhost:8100/)
-- **Elasticsearch**: [http://localhost:9200/](http://localhost:9200/)
+- **Qdrant**: [http://localhost:9200/](http://localhost:6333/dashboard)
 - **Streamlit Client**: [http://localhost:8501/](http://localhost:8501/)
 
 ---

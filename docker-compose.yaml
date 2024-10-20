@@ -11,10 +11,10 @@ services:
     volumes:
       - ./api:/app
     depends_on:
-      - elasticsearch
+      - qdrant
     networks:
       - app-network
-
+      
   streamlit:
     build:
       context: ./client
@@ -29,13 +29,14 @@ services:
     networks:
       - app-network
 
-  elasticsearch:
-    image: bitnami/elasticsearch:latest
-    container_name: elasticsearch
-    environment:
-      - ELASTICSEARCH_PASSWORD=bitnami
+  qdrant:
+    image: qdrant/qdrant
+    container_name: qdrant
     ports:
-      - "9200:9200"
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ./qdrant_storage:/qdrant/storage:z
     networks:
       - app-network
 
