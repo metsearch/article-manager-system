@@ -6,10 +6,7 @@ from fastapi import APIRouter, HTTPException, UploadFile, File, status
 from fastapi.responses import JSONResponse
 from log_handler.log import logger 
 
-from typing import List
-
 from mapper.mapper import Mapper 
-from schemas.article_schema import Article
 from settings.system_settings import article_summarizer_prompt
 
 from qdrant_client import models
@@ -160,9 +157,14 @@ class Article:
             limit=incoming_req.nb_neighbors
         )
         
-        # return JSONResponse(
-        #     status_code=status.HTTP_200_OK,
-        #     content={
-        #         "search_result": points
-        #     }
-        # )
+        articles = []
+        if hasattr(points, 'points'):
+            for point in points.points:
+                articles.append(point.payload)
+                
+        return JSONResponse(
+            status_code=status.HTTP_200_OK,
+            content={
+                "articles": articles
+            }
+        )
