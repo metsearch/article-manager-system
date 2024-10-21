@@ -41,7 +41,7 @@ This repository contains an application for managing articles. Follow the instru
 Once the containers are up, you can access the different components of the application:
 
 - **FastAPI Server**: [http://localhost:8100/](http://localhost:8100/)
-- **Qdrant**: [http://localhost:6333/Dashboard](http://localhost:6333/)
+- **Qdrant**: [http://localhost:6333/](http://localhost:6333/dashboard)
 - **Streamlit Client**: [http://localhost:8501/](http://localhost:8501/)
 
 ---
