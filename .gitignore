@@ -2,4 +2,4 @@ venv/
 __pycache__/
 *.log
 .env
-qdrant_storage
+qdrant_storage/
