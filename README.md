@@ -20,7 +20,7 @@ This repository contains an application for managing articles. Follow the instru
 
 2. **Navigate to the project directory:**
     ```bash
-    cd articles-manager
+    cd article-manager-system
     ```
 
 3. **Create an environment file:**
